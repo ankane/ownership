@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Code ownership for your Rails app"
   spec.homepage      = "https://github.com/ankane/ownership"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
