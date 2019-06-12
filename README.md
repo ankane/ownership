@@ -1,6 +1,6 @@
 # Ownership
 
-Code ownership for your Rails app
+Code ownership for Rails
 
 :tangerine: Battle-tested at [Instacart](https://www.instacart.com/opensource)
 
