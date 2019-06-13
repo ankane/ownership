@@ -13,7 +13,7 @@ module Ownership
   end
 end
 
-Object.send :include, Ownership::GlobalMethods
+Object.include Ownership::GlobalMethods
 
 if defined?(ActiveSupport)
   ActiveSupport.on_load(:action_controller) do
