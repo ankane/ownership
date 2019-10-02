@@ -32,4 +32,12 @@ class OwnershipTest < Minitest::Test
     end
     assert_equal error.owner, :logistics
   end
+
+  def test_pry_method_does_not_bomb
+    assert Kernel, method(:puts).owner
+
+    require 'pry'
+
+    Pry::Method.new(method(:puts)).wrapped_owner
+  end
 end
