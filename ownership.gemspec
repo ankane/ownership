@@ -1,4 +1,3 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "ownership/version"
@@ -24,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "activejob"
   spec.add_development_dependency "marginalia"
+  spec.add_development_dependency "honeybadger"
 end

@@ -21,7 +21,6 @@ module Ownership
         ::Honeybadger.configure do |config|
           config.before_notify do |notice|
             current_owner = notice.exception.owner if notice.exception.is_a?(Exception)
-            current_owner ||= notice.context[:ownership_owner]
             current_owner ||= Ownership.owner
 
             add_owner_as_tag(notice, current_owner)

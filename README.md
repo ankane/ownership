@@ -108,23 +108,6 @@ Owner lookup also works with a proc:
 Ownership::Honeybadger.api_keys = -> (owner) { ENV["#{owner.to_s.upcase}_HONEYBADGER_API_KEY"] }
 ```
 
-If you want to re-route a notice based on context, you can pass an `ownership_owner` key to the notify call, as follows:
-
-```ruby
-Honeybadger.notify("Something wicked, this way comes", context: {
-ownership_owner: :logistics })
-
-# or, in separate calls
-Honeybadger.context(ownership_owner: :logistics)
-Honeybadger.notify("Something wicked, this way comes")
-```
-
-The preference for which owner owns a given notification is:
-
-1. The `owner` of the exception, if an exception is attached to the notice. This is set by the `owner` method used throughout the integrations, when an exception occurs.
-2. The `ownership_owner` set in the context for the notice, if any.
-3. The current `Ownership.owner`, if any.
-
 ## Custom Integrations
 
 You can define a custom block of code to run with:

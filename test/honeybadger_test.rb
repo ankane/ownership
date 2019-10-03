@@ -1,14 +1,7 @@
 require_relative "test_helper"
 
-# Silence the boot up message from Honeybadger
-begin
-  original_stdout, $stdout = $stdout, StringIO.new
-  original_stderr, $stderr = $stderr, StringIO.new
-  require "honeybadger/ruby"
-  Honeybadger.init!(framework: :ruby, env: "test", :"logging.path" => "STDOUT")
-ensure
-  $stdout, $stderr = original_stdout, original_stderr
-end
+require "honeybadger/ruby"
+Honeybadger.init!(framework: :ruby, env: "test", :"logging.path" => Tempfile.new.path)
 
 Honeybadger.configure do |config|
   config.api_key = "default-key"
@@ -81,26 +74,13 @@ class HoneybadgerTest < Minitest::Test
     assert_equal "logistics-key", notices.last.api_key
   end
 
-  def test_prefer_exception_owner_over_all_else
+  def test_prefer_exception_owner_over_thread_local_ownership
     owner :logistics do
       ex = StandardError.new("boom for sales")
       ex.owner = :sales
 
-      Honeybadger.notify(ex, sync: true, context: { ownership_owner: :support })
+      Honeybadger.notify(ex, sync: true)
     end
-
-    assert_equal "sales-key", notices.last.api_key
-  end
-
-  def test_prefer_context_ownership_over_thread_local_ownership
-    owner :logistics do
-      Honeybadger.notify("boom", sync: true, context: { ownership_owner: :support })
-    end
-
-    assert_equal "support-key", notices.last.api_key
-
-    Honeybadger.context(ownership_owner: :sales)
-    Honeybadger.notify("boom", sync: true)
 
     assert_equal "sales-key", notices.last.api_key
   end
