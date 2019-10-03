@@ -67,7 +67,7 @@ There are a few built-in integrations with other gems.
 - [Marginalia](#marginalia)
 - [Rollbar](#rollbar)
 
-You can also add a [custom integration](#custom-integrations).
+You can also add [custom integrations](#custom-integrations).
 
 ### Honeybadger
 
