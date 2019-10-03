@@ -1,6 +1,11 @@
 module Ownership
   module GlobalMethods
-    def owner(owner, &block)
+    private
+
+    def owner(owner = nil, &block)
+      return super() if is_a?(Method) # hack for pry
+
+      raise ArgumentError, "Missing owner" unless owner
       raise ArgumentError, "Missing block" unless block_given?
 
       previous_value = Thread.current[:ownership_owner]
