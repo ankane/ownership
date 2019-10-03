@@ -2,9 +2,10 @@ module Ownership
   module GlobalMethods
     private
 
-    def owner(owner = nil, &block)
-      return super() if is_a?(Method) # hack for pry
+    def owner(*args, &block)
+      return super if is_a?(Method) # hack for pry
 
+      owner = args[0]
       raise ArgumentError, "Missing owner" unless owner
       raise ArgumentError, "Missing block" unless block_given?
 
