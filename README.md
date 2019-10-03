@@ -51,6 +51,18 @@ owner :logistics do
 end
 ```
 
+### Claiming ownership of methods within classes
+
+```ruby
+class MyClass
+  include Ownership::Owner.for(:call, owner: :logistics)
+
+  def call
+    # anything in here is wrapped with a call to `owner :logistics`
+  end
+end
+```
+
 ### Default
 
 You can set a default owner with:
