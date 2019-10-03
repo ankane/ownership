@@ -1,8 +1,8 @@
 ## 0.1.1 [unreleased]
 
-- Fixed conflict with Pry
+- Added Honeybadger integration
 - Made `owner` method private to behave like `Kernel` methods
-- Honeybadger integration
+- Fixed conflict with Pry
 
 ## 0.1.0
 
