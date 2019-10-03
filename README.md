@@ -63,6 +63,29 @@ Ownership.default_owner = :logistics
 
 There are a few built-in integrations with other gems.
 
+- [Honeybadger](#honeybadger)
+- [Marginalia](#marginalia)
+- [Rollbar](#rollbar)
+
+You can also add a [custom integration](#custom-integrations).
+
+### Honeybadger
+
+[Honeybadger](https://github.com/honeybadger-io/honeybadger-ruby) tracks exceptions. This integration makes it easy to send exceptions to different projects based on the owner. We recommend having a project for each team.
+
+```ruby
+Ownership::Honeybadger.api_keys = {
+  logistics: "token1",
+  customers: "token2"
+}
+```
+
+Also works with a proc
+
+```ruby
+Ownership::Honeybadger.api_keys = -> (owner) { ENV["#{owner.to_s.upcase}_HONEYBADGER_API_KEY"] }
+```
+
 ### Marginalia
 
 [Marginalia](https://github.com/basecamp/marginalia) adds comments to ActiveRecord queries. If installed, the owner is added.
@@ -89,23 +112,6 @@ Also works with a proc
 
 ```ruby
 Ownership::Rollbar.access_token = -> (owner) { ENV["#{owner.to_s.upcase}_ROLLBAR_ACCESS_TOKEN"] }
-```
-
-### Honeybadger
-
-[Honeybadger](https://github.com/honeybadger-io/honeybadger-ruby) tracks exceptions. This integration makes it easy to send exceptions to different projects based on the owner. We recommend having a project for each team.
-
-```ruby
-Ownership::Honeybadger.api_keys = {
-  logistics: "token1",
-  customers: "token2"
-}
-```
-
-Owner lookup also works with a proc:
-
-```ruby
-Ownership::Honeybadger.api_keys = -> (owner) { ENV["#{owner.to_s.upcase}_HONEYBADGER_API_KEY"] }
 ```
 
 ## Custom Integrations
