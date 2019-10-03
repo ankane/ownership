@@ -5,6 +5,7 @@ require "minitest/autorun"
 require "minitest/pride"
 require "active_record" # for marginalia
 require "marginalia"
+require "pry"
 
 ActiveJob::Base.logger.level = :warn
 

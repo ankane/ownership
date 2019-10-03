@@ -32,4 +32,16 @@ class OwnershipTest < Minitest::Test
     end
     assert_equal error.owner, :logistics
   end
+
+  def test_respond_to?
+    assert !nil.respond_to?(:owner)
+  end
+
+  def test_method_owner
+    assert_equal Kernel, method(:puts).owner
+  end
+
+  def test_pry
+    assert_equal Kernel, Pry::Method.new(method(:puts)).wrapped_owner.wrapped
+  end
 end
