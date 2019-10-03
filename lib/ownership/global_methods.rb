@@ -6,7 +6,8 @@ module Ownership
       return super if is_a?(Method) # hack for pry
 
       owner = args[0]
-      raise ArgumentError, "Missing owner" unless owner
+      # same error message as Ruby
+      raise ArgumentError, "wrong number of arguments (given #{args.size}, expected 1)" if args.size != 1
       raise ArgumentError, "Missing block" unless block_given?
 
       previous_value = Thread.current[:ownership_owner]
