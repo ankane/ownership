@@ -91,6 +91,23 @@ Also works with a proc
 Ownership::Rollbar.access_token = -> (owner) { ENV["#{owner.to_s.upcase}_ROLLBAR_ACCESS_TOKEN"] }
 ```
 
+### Honeybadger
+
+[Honeybadger](https://github.com/honeybadger-io/honeybadger-ruby) tracks exceptions. This integration makes it easy to send exceptions to different projects based on the owner. We recommend having a project for each team.
+
+```ruby
+Ownership::Honeybadger.api_keys = {
+  logistics: "token1",
+  customers: "token2"
+}
+```
+
+Owner lookup also works with a proc:
+
+```ruby
+Ownership::Honeybadger.api_keys = -> (owner) { ENV["#{owner.to_s.upcase}_HONEYBADGER_API_KEY"] }
+```
+
 ## Custom Integrations
 
 You can define a custom block of code to run with:

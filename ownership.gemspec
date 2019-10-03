@@ -20,5 +20,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "activejob"
   spec.add_development_dependency "marginalia"
+  spec.add_development_dependency "honeybadger"
   spec.add_development_dependency "pry"
 end
