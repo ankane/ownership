@@ -63,6 +63,18 @@ class MyClass
 end
 ```
 
+If you would like to claim ownership of a class method, `extend` the Owner module instead of including it:
+
+```ruby
+class MyClass
+  extend Ownership::Owner.for(:call, owner: :sales)
+
+  def self.call
+    # anything in here is wrapped with a call to `owner :sales`
+  end
+end
+```
+
 ### Default
 
 You can set a default owner with:

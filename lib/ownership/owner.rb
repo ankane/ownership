@@ -13,6 +13,10 @@ module Ownership
         singleton_class.__send__(:define_method, :included) do |base|
           base.prepend(mod)
         end
+
+        singleton_class.__send__(:define_method, :extended) do |base|
+          base.singleton_class.prepend(mod)
+        end
       end
     end
 
