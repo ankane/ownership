@@ -1,4 +1,4 @@
-## 0.1.1 [unreleased]
+## 0.1.1
 
 - Added Honeybadger integration
 - Made `owner` method private to behave like `Kernel` methods
