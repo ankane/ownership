@@ -2,6 +2,8 @@
 
 Code ownership for Rails
 
+Check out [Scaling the Monolith](https://ankane.org/scaling-the-monolith) for other tips
+
 :tangerine: Battle-tested at [Instacart](https://www.instacart.com/opensource)
 
 ## Installation
