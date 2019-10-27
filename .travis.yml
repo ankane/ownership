@@ -1,0 +1,10 @@
+dist: xenial
+language: ruby
+rvm: 2.6.3
+cache:
+  bundler: true
+script: bundle exec rake test
+notifications:
+  email:
+    on_success: never
+    on_failure: change
