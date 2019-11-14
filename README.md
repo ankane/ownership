@@ -164,3 +164,12 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 - Fix bugs and [submit pull requests](https://github.com/ankane/ownership/pulls)
 - Write, clarify, or fix documentation
 - Suggest or add new features
+
+To get started with development and testing:
+
+```sh
+git clone https://github.com/ankane/ownership.git
+cd ownership
+bundle install
+bundle exec rake test
+```
