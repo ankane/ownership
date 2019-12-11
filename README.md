@@ -55,7 +55,7 @@ end
 
 ```ruby
 class MyClass
-  include Ownership::Owner.for(:call, owner: :logistics)
+  owner :logistics, methods: [:call]
 
   def call
     # anything in here is wrapped with a call to `owner :logistics`
@@ -63,11 +63,13 @@ class MyClass
 end
 ```
 
-If you would like to claim ownership of a class method, `extend` the Owner module instead of including it:
+If you would like to claim ownership of a class method, call `owner` in the context of the singleton class instead:
 
 ```ruby
 class MyClass
-  extend Ownership::Owner.for(:call, owner: :sales)
+  class << self
+    owner :sales, methods: [:call]
+  end
 
   def self.call
     # anything in here is wrapped with a call to `owner :sales`
