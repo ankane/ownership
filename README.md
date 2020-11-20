@@ -6,7 +6,7 @@ Check out [Scaling the Monolith](https://ankane.org/scaling-the-monolith) for ot
 
 :tangerine: Battle-tested at [Instacart](https://www.instacart.com/opensource)
 
-[![Build Status](https://travis-ci.org/ankane/ownership.svg?branch=master)](https://travis-ci.org/ankane/ownership)
+[![Build Status](https://github.com/ankane/ownership/workflows/build/badge.svg?branch=master)](https://github.com/ankane/ownership/actions)
 
 ## Installation
 
