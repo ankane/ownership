@@ -55,6 +55,32 @@ owner :logistics do
 end
 ```
 
+### Claiming ownership of methods within classes
+
+```ruby
+class MyClass
+  owner :logistics, methods: [:call]
+
+  def call
+    # anything in here is wrapped with a call to `owner :logistics`
+  end
+end
+```
+
+If you would like to claim ownership of a class method, call `owner` in the context of the singleton class instead:
+
+```ruby
+class MyClass
+  class << self
+    owner :sales, methods: [:call]
+  end
+
+  def self.call
+    # anything in here is wrapped with a call to `owner :sales`
+  end
+end
+```
+
 ### Default
 
 You can set a default owner with:

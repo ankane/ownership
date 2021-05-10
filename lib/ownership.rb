@@ -1,5 +1,6 @@
 require "ownership/global_methods"
 require "ownership/honeybadger"
+require "ownership/owner"
 require "ownership/rollbar"
 require "ownership/version"
 
