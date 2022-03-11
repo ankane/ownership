@@ -118,6 +118,11 @@ Also works with a proc
 Ownership::Rollbar.access_token = -> (owner) { ENV["#{owner.to_s.upcase}_ROLLBAR_ACCESS_TOKEN"] }
 ```
 
+In order to work with new versions of rollbar, you'll need to add this to your rollbar config:
+```ruby
+ config.use_payload_access_token = true
+```
+
 ## Custom Integrations
 
 You can define a custom block of code to run with:
