@@ -104,7 +104,7 @@ Ownership::Honeybadger.api_keys = {
 Also works with a proc
 
 ```ruby
-Ownership::Honeybadger.api_keys = -> (owner) { ENV["#{owner.to_s.upcase}_HONEYBADGER_API_KEY"] }
+Ownership::Honeybadger.api_keys = ->(owner) { ENV["#{owner.to_s.upcase}_HONEYBADGER_API_KEY"] }
 ```
 
 ### Marginalia
@@ -132,7 +132,7 @@ Ownership::Rollbar.access_token = {
 Also works with a proc
 
 ```ruby
-Ownership::Rollbar.access_token = -> (owner) { ENV["#{owner.to_s.upcase}_ROLLBAR_ACCESS_TOKEN"] }
+Ownership::Rollbar.access_token = ->(owner) { ENV["#{owner.to_s.upcase}_ROLLBAR_ACCESS_TOKEN"] }
 ```
 
 For version 3.1+ of the `rollbar` gem, add to `config/initializers/rollbar.rb`:
