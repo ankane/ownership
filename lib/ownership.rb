@@ -24,7 +24,7 @@ if defined?(ActiveSupport)
 
   ActiveSupport.on_load(:active_record) do
     if ActiveRecord::VERSION::MAJOR >= 7
-      ActiveRecord::QueryLogs.taggings[:owner] = -> { Ownership.owner }
+      ActiveRecord::QueryLogs.taggings[:owner] ||= -> { Ownership.owner }
     end
 
     require "ownership/marginalia" if defined?(Marginalia)
