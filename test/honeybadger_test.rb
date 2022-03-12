@@ -17,8 +17,7 @@ Ownership::Honeybadger.api_keys = {
 
 class HoneybadgerTest < Minitest::Test
   def setup
-    $around_calls = []
-
+    super
     Honeybadger.config.backend.notifications.clear
     Honeybadger.context.clear!
   end

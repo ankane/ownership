@@ -2,8 +2,8 @@ require_relative "test_helper"
 
 class OwnershipTest < Minitest::Test
   def setup
+    super
     $current_owner = nil
-    $around_calls = []
   end
 
   def test_job

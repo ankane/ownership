@@ -20,6 +20,12 @@ end
 class User < ActiveRecord::Base
 end
 
+class Minitest::Test
+  def setup
+    $around_calls = []
+  end
+end
+
 Ownership.around_change = proc do |owner, block|
   $around_calls << "start"
   block.call

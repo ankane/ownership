@@ -7,5 +7,6 @@ gem "minitest"
 gem "activejob"
 gem "rails" # for marginalia
 gem "marginalia", require: false
-gem "honeybadger"
+gem "honeybadger", require: false
+gem "rollbar", require: false
 gem "pry"
