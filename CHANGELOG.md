@@ -1,4 +1,4 @@
-## 0.1.2 (unreleased)
+## 0.1.2 (2022-03-11)
 
 - Added Active Record query log tags integration
 
