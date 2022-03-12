@@ -87,7 +87,7 @@ Add to `config/application.rb`:
 
 ```ruby
 config.active_record.query_log_tags_enabled = true
-config.active_record.query_log_tags << {owner: -> { Ownership.owner }}
+config.active_record.query_log_tags << :owner
 ```
 
 ### Honeybadger

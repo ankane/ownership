@@ -14,8 +14,7 @@ ActiveRecord::Base.logger = ActiveSupport::Logger.new($io)
 
 if ActiveRecord::VERSION::MAJOR >= 7
   ActiveRecord.query_transformers << ActiveRecord::QueryLogs
-  ActiveRecord::QueryLogs.tags = []
-  ActiveRecord::QueryLogs.tags << {owner: -> { Ownership.owner }}
+  ActiveRecord::QueryLogs.tags = [:owner]
 end
 
 class ActiveRecordTest < Minitest::Test

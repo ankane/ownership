@@ -1,3 +1,7 @@
+## 0.1.2 (unreleased)
+
+- Added Active Record query log tags integration
+
 ## 0.1.1 (2019-10-27)
 
 - Added Honeybadger integration
