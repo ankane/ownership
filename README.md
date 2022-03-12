@@ -67,11 +67,21 @@ Ownership.default_owner = :logistics
 
 There are a few built-in integrations with other gems.
 
+- [Active Record](#active-record)
 - [Honeybadger](#honeybadger)
 - [Marginalia](#marginalia)
 - [Rollbar](#rollbar)
 
 You can also add [custom integrations](#custom-integrations).
+
+### Active Record
+
+Active Record 7+ has the option to add comments to queries. Add to `config/application.rb`:
+
+```ruby
+config.active_record.query_log_tags_enabled = true
+config.active_record.query_log_tags << {owner: -> { Ownership.owner }}
+```
 
 ### Honeybadger
 
@@ -92,7 +102,7 @@ Ownership::Honeybadger.api_keys = -> (owner) { ENV["#{owner.to_s.upcase}_HONEYBA
 
 ### Marginalia
 
-[Marginalia](https://github.com/basecamp/marginalia) adds comments to ActiveRecord queries. If installed, the owner is added.
+[Marginalia](https://github.com/basecamp/marginalia) adds comments to Active Record queries. If installed, the owner is added.
 
 ```sql
 SELECT ...

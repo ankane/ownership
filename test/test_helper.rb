@@ -3,7 +3,7 @@ require "active_job"
 Bundler.require(:default)
 require "minitest/autorun"
 require "minitest/pride"
-require "active_record" # for marginalia
+require "active_record"
 require "marginalia"
 require "pry"
 

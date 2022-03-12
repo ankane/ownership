@@ -10,3 +10,4 @@ gem "marginalia", require: false
 gem "honeybadger", require: false
 gem "rollbar", require: false
 gem "pry"
+gem "sqlite3"
