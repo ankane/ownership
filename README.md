@@ -76,7 +76,14 @@ You can also add [custom integrations](#custom-integrations).
 
 ### Active Record
 
-Active Record 7+ has the option to add comments to queries. Add to `config/application.rb`:
+Active Record 7+ has the option to add comments to queries.
+
+```sql
+SELECT ...
+/*application:MyApp,controller:posts,action:index,owner:logistics*/
+```
+
+Add to `config/application.rb`:
 
 ```ruby
 config.active_record.query_log_tags_enabled = true
