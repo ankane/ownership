@@ -11,12 +11,6 @@ class OwnershipTest < Minitest::Test
     assert_equal :logistics, $current_owner
   end
 
-  # no great way to test SQL comment unfortunately
-  # ActiveSupport::Notifications are sent before the comment is added
-  def test_marginalia
-    assert_includes Marginalia::Comment.components, :owner
-  end
-
   def test_around
     owner :logistics do
       $around_calls << "middle"
