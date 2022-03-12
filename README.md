@@ -13,7 +13,7 @@ Check out [Scaling the Monolith](https://ankane.org/scaling-the-monolith) for ot
 Add this line to your application’s Gemfile:
 
 ```ruby
-gem 'ownership'
+gem "ownership"
 ```
 
 ## Getting Started
