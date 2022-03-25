@@ -38,4 +38,32 @@ class OwnershipTest < Minitest::Test
   def test_pry
     assert_equal Kernel, Pry::Method.new(method(:puts)).wrapped_owner.wrapped
   end
+
+  def test_claiming_instance_method
+    klass = Class.new do
+      owner :logistics, methods: [:call]
+
+      def call
+        raise "boom"
+      end
+    end
+
+    error = assert_raises { klass.new.call }
+    assert_equal error.owner, :logistics
+  end
+
+  def test_claiming_singleton_method
+    klass = Class.new do
+      class << self
+        owner :sales, methods: [:call]
+      end
+
+      def self.call
+        raise "boom"
+      end
+    end
+
+    error = assert_raises { klass.call }
+    assert_equal error.owner, :sales
+  end
 end
