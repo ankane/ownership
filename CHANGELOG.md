@@ -1,4 +1,4 @@
-## 0.2.0 (unreleased)
+## 0.2.0 (2022-04-26)
 
 - Fixed issue with nested `owner` blocks
 - Dropped support for Ruby < 2.6
