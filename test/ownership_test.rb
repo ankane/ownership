@@ -28,6 +28,13 @@ class OwnershipTest < Minitest::Test
     assert_equal error.owner, :sales
   end
 
+  def test_default_owner
+    Ownership.default_owner = :logistics
+    assert_equal :logistics, Ownership.owner
+  ensure
+    Ownership.default_owner = nil
+  end
+
   def test_respond_to?
     assert !nil.respond_to?(:owner)
   end
