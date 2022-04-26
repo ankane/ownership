@@ -27,6 +27,17 @@ class OwnershipTest < Minitest::Test
     assert_equal error.owner, :logistics
   end
 
+  def test_nested_exception
+    error = assert_raises do
+      owner :logistics do
+        owner :sales do
+          raise "boom"
+        end
+      end
+    end
+    assert_equal error.owner, :sales
+  end
+
   def test_respond_to?
     assert !nil.respond_to?(:owner)
   end
