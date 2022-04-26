@@ -5,16 +5,19 @@ ActiveRecord::Base.logger = ActiveSupport::Logger.new($io)
 
 if ActiveRecord::VERSION::MAJOR >= 7
   ActiveRecord.query_transformers << ActiveRecord::QueryLogs
-  ActiveRecord::QueryLogs.tags = [:owner]
 end
 
 class ActiveRecordTest < Minitest::Test
   def setup
     skip if ActiveRecord::VERSION::MAJOR < 7
 
+    ActiveRecord::QueryLogs.tags = [:owner]
     super
-
     $io.truncate(0)
+  end
+
+  def teardown
+    ActiveRecord::QueryLogs.tags = []
   end
 
   def test_owner

@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "active_job"
+require "combustion"
 Bundler.require(:default)
 require "minitest/autorun"
 require "minitest/pride"
