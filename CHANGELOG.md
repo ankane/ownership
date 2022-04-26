@@ -1,6 +1,7 @@
-## 0.1.3 (unreleased)
+## 0.2.0 (unreleased)
 
 - Fixed issue with nested `owner` blocks
+- Dropped support for Ruby < 2.6
 
 ## 0.1.2 (2022-03-11)
 
