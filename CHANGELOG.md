@@ -1,3 +1,7 @@
+## 0.1.3 (unreleased)
+
+- Fixed issue with nested `owner` blocks
+
 ## 0.1.2 (2022-03-11)
 
 - Added Active Record query log tags integration
