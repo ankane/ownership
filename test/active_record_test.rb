@@ -1,14 +1,5 @@
 require_relative "test_helper"
 
-ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
-ActiveRecord::Migration.verbose = false
-
-ActiveRecord::Schema.define do
-  create_table :users do |t|
-    t.string :name
-  end
-end
-
 $io = StringIO.new
 ActiveRecord::Base.logger = ActiveSupport::Logger.new($io)
 

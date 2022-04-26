@@ -4,8 +4,8 @@ gemspec
 
 gem "rake"
 gem "minitest"
-gem "activejob"
-gem "rails" # for marginalia
+gem "combustion"
+gem "rails"
 gem "marginalia", require: false
 gem "honeybadger", require: false
 gem "rollbar", require: false

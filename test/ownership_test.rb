@@ -1,16 +1,6 @@
 require_relative "test_helper"
 
 class OwnershipTest < Minitest::Test
-  def setup
-    super
-    $current_owner = nil
-  end
-
-  def test_job
-    TestJob.perform_now
-    assert_equal :logistics, $current_owner
-  end
-
   def test_around
     owner :logistics do
       $around_calls << "middle"
