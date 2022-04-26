@@ -29,6 +29,7 @@ class OwnershipTest < Minitest::Test
   end
 
   def test_default_owner
+    assert_nil Ownership.owner
     Ownership.default_owner = :logistics
     assert_equal :logistics, Ownership.owner
   ensure
