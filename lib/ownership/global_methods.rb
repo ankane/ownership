@@ -22,7 +22,7 @@ module Ownership
             block.call
           end
         rescue Exception => e
-          e.owner = owner
+          e.owner ||= owner
           raise
         end
       ensure
