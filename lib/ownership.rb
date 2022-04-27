@@ -1,12 +1,14 @@
+# modules
 require "ownership/global_methods"
+require "ownership/version"
+
+# integrations
 require "ownership/honeybadger"
 require "ownership/rollbar"
-require "ownership/version"
 
 module Ownership
   class << self
-    attr_accessor :default_owner
-    attr_accessor :around_change
+    attr_accessor :around_change, :default_owner
 
     def owner
       Thread.current[:ownership_owner] || default_owner
