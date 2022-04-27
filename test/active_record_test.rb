@@ -3,10 +3,6 @@ require_relative "test_helper"
 $io = StringIO.new
 ActiveRecord::Base.logger = ActiveSupport::Logger.new($io)
 
-if ActiveRecord::VERSION::MAJOR >= 7
-  ActiveRecord.query_transformers << ActiveRecord::QueryLogs
-end
-
 class ActiveRecordTest < Minitest::Test
   def setup
     skip if ActiveRecord::VERSION::MAJOR < 7

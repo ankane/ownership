@@ -16,6 +16,10 @@ Combustion.initialize! :active_record, :action_controller, :active_job do
   config.active_record.logger = logger
   config.active_job.logger = logger
 
+  if ActiveRecord::VERSION::MAJOR >= 7
+    config.active_record.query_log_tags_enabled = true
+  end
+
   require "marginalia"
 end
 
