@@ -14,17 +14,15 @@ module Ownership
       begin
         Thread.current[:ownership_owner] = owner
 
-        begin
-          # callbacks
-          if Ownership.around_change
-            Ownership.around_change.call(owner, block)
-          else
-            block.call
-          end
-        rescue Exception => e
-          e.owner ||= owner
-          raise
+        # callbacks
+        if Ownership.around_change
+          Ownership.around_change.call(owner, block)
+        else
+          block.call
         end
+      rescue Exception => e
+        e.owner ||= owner
+        raise
       ensure
         Thread.current[:ownership_owner] = previous_value
       end
