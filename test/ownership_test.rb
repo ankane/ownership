@@ -5,7 +5,7 @@ class OwnershipTest < Minitest::Test
     owner :logistics do
       $around_calls << "middle"
     end
-    assert_equal $around_calls, ["start", "middle", "finish"]
+    assert_equal ["start", "middle", "finish"], $around_calls
   end
 
   def test_exception
@@ -14,7 +14,7 @@ class OwnershipTest < Minitest::Test
         raise "boom"
       end
     end
-    assert_equal error.owner, :logistics
+    assert_equal :logistics, error.owner
   end
 
   def test_nested_exception
@@ -25,7 +25,7 @@ class OwnershipTest < Minitest::Test
         end
       end
     end
-    assert_equal error.owner, :sales
+    assert_equal :sales, error.owner
   end
 
   def test_default_owner
@@ -37,7 +37,7 @@ class OwnershipTest < Minitest::Test
   end
 
   def test_respond_to?
-    assert !nil.respond_to?(:owner)
+    refute nil.respond_to?(:owner)
   end
 
   def test_method_owner
