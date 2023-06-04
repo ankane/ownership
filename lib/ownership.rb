@@ -1,10 +1,10 @@
 # modules
-require "ownership/global_methods"
-require "ownership/version"
+require_relative "ownership/global_methods"
+require_relative "ownership/version"
 
 # integrations
-require "ownership/honeybadger"
-require "ownership/rollbar"
+require_relative "ownership/honeybadger"
+require_relative "ownership/rollbar"
 
 module Ownership
   class << self
@@ -20,7 +20,7 @@ Object.include Ownership::GlobalMethods
 
 if defined?(ActiveSupport)
   ActiveSupport.on_load(:action_controller) do
-    require "ownership/controller_methods"
+    require_relative "ownership/controller_methods"
     include Ownership::ControllerMethods
   end
 
@@ -29,15 +29,15 @@ if defined?(ActiveSupport)
       ActiveRecord::QueryLogs.taggings[:owner] ||= -> { Ownership.owner }
     end
 
-    require "ownership/marginalia" if defined?(Marginalia)
+    require_relative "ownership/marginalia" if defined?(Marginalia)
   end
 
   ActiveSupport.on_load(:active_job) do
-    require "ownership/job_methods"
+    require_relative "ownership/job_methods"
     include Ownership::JobMethods
   end
 else
-  require "ownership/marginalia" if defined?(Marginalia)
+  require_relative "ownership/marginalia" if defined?(Marginalia)
 end
 
 class Exception
