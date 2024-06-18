@@ -1,7 +1,7 @@
 require_relative "test_helper"
 
 require "honeybadger/ruby"
-Honeybadger.init!(framework: :ruby, env: "test", :"logging.path" => Tempfile.new.path)
+Honeybadger.init!(framework: :ruby, env: "test", "logging.path": Tempfile.new.path)
 
 Honeybadger.configure do |config|
   config.api_key = "default-key"
