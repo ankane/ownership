@@ -26,7 +26,10 @@ if defined?(ActiveSupport)
 
   ActiveSupport.on_load(:active_record) do
     if ActiveRecord::VERSION::MAJOR >= 7
-      ActiveRecord::QueryLogs.taggings[:owner] ||= -> { Ownership.owner }
+      # taggings is frozen in Active Record 8
+      if !ActiveRecord::QueryLogs.taggings[:owner]
+        ActiveRecord::QueryLogs.taggings = ActiveRecord::QueryLogs.taggings.merge({owner: -> { Ownership.owner }})
+      end
     end
 
     require_relative "ownership/marginalia" if defined?(Marginalia)
