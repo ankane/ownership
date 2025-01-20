@@ -68,6 +68,7 @@ Ownership.default_owner = :logistics
 There are a few built-in integrations with other gems.
 
 - [Active Record](#active-record)
+- [AppSignal](#appsignal)
 - [Honeybadger](#honeybadger)
 - [Marginalia](#marginalia)
 - [Rollbar](#rollbar)
@@ -89,6 +90,12 @@ Add to `config/application.rb`:
 config.active_record.query_log_tags_enabled = true
 config.active_record.query_log_tags << :owner
 ```
+
+### AppSignal
+
+The [AppSignal gem integrates with Ownership](https://docs.appsignal.com/ruby/integrations/ownership.html) automatically. Error and performance samples in AppSignal will be tagged with the specified owner.
+
+You can set AppSignal's [`ownership_set_namespace` configuration option](https://docs.appsignal.com/ruby/configuration/options.html#option-ownership_set_namespace) to `true` in order to use the specified owner as an AppSignal namespace, which allows you to easily list performance actions and error incidents for each namespace.
 
 ### Honeybadger
 
