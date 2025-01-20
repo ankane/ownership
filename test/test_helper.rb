@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "logger" # for Active Record 7.0
+require "logger" # for Rails 7.0
 require "combustion"
 Bundler.require(:default)
 require "minitest/autorun"
