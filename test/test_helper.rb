@@ -32,3 +32,8 @@ Ownership.around_change = proc do |owner, block|
   block.call
   $around_calls << "finish"
 end
+
+# https://github.com/rails/rails/issues/54595
+if RUBY_ENGINE == "jruby" && Rails::VERSION::MAJOR >= 8
+  Rails.application.reload_routes_unless_loaded
+end
