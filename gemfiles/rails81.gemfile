@@ -1,0 +1,13 @@
+source "https://rubygems.org"
+
+gemspec path: ".."
+
+gem "rake"
+gem "minitest"
+gem "combustion"
+gem "rails", "~> 8.1.0.beta1"
+gem "marginalia", require: false
+gem "honeybadger", require: false
+gem "rollbar", require: false
+gem "pry"
+gem "sqlite3"
