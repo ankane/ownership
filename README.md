@@ -184,7 +184,7 @@ Thanks to [Nick Elser](https://github.com/nickelser) for creating this pattern.
 
 ## History
 
-View the [changelog](https://github.com/ankane/ownership/blob/master/CHANGELOG.md).
+View the [changelog](https://github.com/ankane/ownership/blob/master/CHANGELOG.md)
 
 ## Contributing
 
