@@ -1,3 +1,7 @@
+## 0.5.0 (unreleased)
+
+- Dropped support for Ruby < 3.2 and Rails < 7.2
+
 ## 0.4.0 (2024-10-01)
 
 - Added support for Rails 8

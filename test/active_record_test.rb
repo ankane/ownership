@@ -18,11 +18,7 @@ class ActiveRecordTest < Minitest::Test
     owner(:logistics) do
       User.last
     end
-    if ActiveRecord::VERSION::STRING.to_f >= 7.1
-      assert_match "/*owner='logistics'*/", logs
-    else
-      assert_match "/*owner:logistics*/", logs
-    end
+    assert_match "/*owner='logistics'*/", logs
   end
 
   def test_no_owner
