@@ -18,7 +18,7 @@ end
 
 Object.include Ownership::GlobalMethods
 
-if defined?(ActiveSupport)
+if defined?(ActiveSupport.on_load)
   ActiveSupport.on_load(:action_controller) do
     require_relative "ownership/controller_methods"
     include Ownership::ControllerMethods
