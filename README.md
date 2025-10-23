@@ -160,8 +160,6 @@ Ownership.around_change = proc do |owner, block|
 end
 ```
 
-Please don’t hesitate to [submit a pull request](https://github.com/ankane/ownership/pulls) if you create an integration that others can use.
-
 Exceptions that bubble up from an `owner` block have the owner, which your exception reporting library can use.
 
 ```ruby
