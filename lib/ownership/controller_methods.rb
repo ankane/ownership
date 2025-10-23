@@ -5,8 +5,8 @@ module Ownership
     extend ActiveSupport::Concern
 
     class_methods do
-      def owner(owner, options = {})
-        around_action options do |_, block|
+      def owner(owner, **options)
+        around_action(**options) do |_, block|
           owner(owner) { block.call }
         end
       end

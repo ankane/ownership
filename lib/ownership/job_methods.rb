@@ -5,9 +5,9 @@ module Ownership
     extend ActiveSupport::Concern
 
     class_methods do
-      def owner(*args)
+      def owner(owner)
         around_perform do |_, block|
-          owner(*args) { block.call }
+          owner(owner) { block.call }
         end
       end
     end
