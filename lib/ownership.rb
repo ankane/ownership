@@ -29,16 +29,12 @@ if defined?(ActiveSupport)
     if !ActiveRecord::QueryLogs.taggings[:owner]
       ActiveRecord::QueryLogs.taggings = ActiveRecord::QueryLogs.taggings.merge({owner: -> { Ownership.owner }})
     end
-
-    require_relative "ownership/marginalia" if defined?(Marginalia)
   end
 
   ActiveSupport.on_load(:active_job) do
     require_relative "ownership/job_methods"
     include Ownership::JobMethods
   end
-else
-  require_relative "ownership/marginalia" if defined?(Marginalia)
 end
 
 class Exception

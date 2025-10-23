@@ -15,8 +15,6 @@ Combustion.initialize! :active_record, :action_controller, :active_job do
   config.active_job.logger = logger
 
   config.active_record.query_log_tags_enabled = true
-
-  require "marginalia"
 end
 
 class Minitest::Test
