@@ -1,4 +1,4 @@
-## 0.5.0 (unreleased)
+## 0.5.0 (2025-10-26)
 
 - Dropped support for Ruby < 3.2 and Rails < 7.2
 - Dropped support for Marginalia
